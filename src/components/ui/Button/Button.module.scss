@@ -2,29 +2,13 @@
 @use "../../../styles/variables";
 
 .button {
+    position: relative;
     display: inline-flex;
-    justify-content: center;
     align-items: center;
-    
+    justify-content: center;
+    gap: var(--Gap-xs);
+    border-radius: var(--Radius-m);
     box-shadow: var(--Shadow-bottom-xs);
-}
-
-.left {
-    position: relative;
-    display: inline-flex;
-    gap: var(--Gap-xs);
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--Radius-m) 0 0 var(--Radius-m);
-}
-
-.right {
-    position: relative;
-    display: inline-flex;
-    gap: var(--Gap-xs);
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 var(--Radius-m) var(--Radius-m) 0;
 }
 
 .isIcon {
@@ -32,15 +16,31 @@
 }
 
 .leading-icon, .trailing-icon, .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        svg {
-            width: var(--Icon-m);
-            height: var(--Icon-m);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--aditional {
+        margin-left: var(--Gap-xxs);
+        padding-left: var(--Gap-s);
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: calc(var(--Gap-xs) * -1);
+            bottom: calc(var(--Gap-xs) * -1);
+            width: 1px;
+            background-color: var(--Neutral-Black-30);
         }
     }
+    
+    svg {
+        width: var(--Icon-m);
+        height: var(--Icon-m);
+    }
+}
+
 
 .Primary {
     background-color: var(--color-button-primary-default);
@@ -91,6 +91,7 @@
 .Destructive {
     background-color: var(--color-button-destructive-default);
     color: var(--color-destructive-secondary);
+    border: solid 1px var(--Neutral-Black-30);
 
     &:hover {
         background-color: var(--color-button-destructive-hover);
@@ -118,21 +119,6 @@
 
     .text {
         position: relative;
-        
-        // &--withBar {
-        //     padding-right: var(--Gap-s);
-
-        //     &::after {
-        //         content: "";
-        //         position: absolute;
-        //         right: 0;
-        //         top: calc(var(--Gap-xs) * -1);
-        //         bottom: calc(var(--Gap-xs) * -1);
-        //         width: 1px;
-        //         background-color: black;
-        //     }
-        // }
-        
     }
 
     .badge {
@@ -151,7 +137,10 @@
 .badge {
     display: inline-flex;
     justify-content: center;
+    align-items: center;
     padding: var(--Gap-xxs) var(--Gap-xs);
     border-radius: var(--Radius-xs);
+    max-height: 20px;
+    max-width: 20px;
 }
 
