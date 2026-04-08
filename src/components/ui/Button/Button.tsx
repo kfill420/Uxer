@@ -6,8 +6,7 @@ import clsx from 'clsx';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode;
     size?: "M" | "S" | "XS";
-    variant: "Primary" | "Secondary" | "Destructive";
-    state: "Default";
+    variant: "Primary" | "Secondary" | "Ghost" | "Destructive" | "Alpha dark" | "Alpha light";
     leading_icon?: boolean;
     trailing_icon?: boolean;
     badge?: boolean;
@@ -16,37 +15,35 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean; 
 }
 
-export function Button({ children, size, variant, state, leading_icon, trailing_icon, badge, badge_list, icon, disabled, ...props}: ButtonProps) {
-    const isIcon = !children || children === "";
+export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, icon, disabled, ...props}: ButtonProps) {
+    const isIconOnly = !children || children === "";
+
     return (
         <button disabled={disabled} className={clsx(
             styles.button, 
             size && styles[size],
             variant && styles[variant],
-            state && styles[state],
-            isIcon && styles['isIcon']
+            isIconOnly && styles['isIcon']
         )}>
-            { leading_icon && icon && (
+            { leading_icon && icon && 
                 <span className={styles['leading-icon']}>{icon}</span>
-            )}
-
-            {
-                !children !== null && children !== undefined &&
-                    <span className={clsx(styles.text)}>{ children }</span>
             }
-            
 
-            { trailing_icon && icon && (
+            { children &&
+                <span className={clsx(styles.text)}>{ children }</span>
+            }
+
+            { trailing_icon && icon && 
                 <span className={styles['trailing-icon']}>{icon}</span>
-            )}
+            }
 
-            { badge && badge_list !==undefined && badge_list !== null && parseInt(badge_list, 10) && (
+            { badge && badge_list !==undefined && badge_list !== null && parseInt(badge_list, 10) && 
                 <span className={styles['badge']}>{badge_list}</span>
-            )}
+            }
 
-            { !leading_icon && !trailing_icon && icon && (
-                <span className={clsx(styles['icon'], !isIcon && styles['icon--aditional'])}>{icon}</span>
-            )}
+            { !leading_icon && !trailing_icon && icon && 
+                <span className={clsx(styles['icon'], !isIconOnly && styles['icon--aditional'])}>{icon}</span>
+            }
         </button>
     )
 }

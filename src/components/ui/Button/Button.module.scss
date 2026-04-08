@@ -6,7 +6,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--Gap-xs);
     border-radius: var(--Radius-m);
     box-shadow: var(--Shadow-bottom-xs);
 }
@@ -20,25 +19,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    &--aditional {
-        margin-left: var(--Gap-xxs);
-        padding-left: var(--Gap-s);
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: calc(var(--Gap-xs) * -1);
-            bottom: calc(var(--Gap-xs) * -1);
-            width: 1px;
-            background-color: var(--Neutral-Black-30);
-        }
-    }
-    
-    svg {
-        width: var(--Icon-m);
-        height: var(--Icon-m);
-    }
 }
 
 
@@ -114,31 +94,118 @@
 
 .M {
     padding: var(--Gap-xs) var(--Gap-s);
+    max-height: 40px;
+    gap: var(--Gap-xs);
 
     @include tokens.typography("m", "medium");
 
-    .text {
-        position: relative;
+    .leading-icon, .trailing-icon, .icon {
+        &--aditional {
+        margin-left: var(--Gap-xxs);
+        padding-left: var(--Gap-s);
+        
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: calc(var(--Gap-xs) * -1);
+            bottom: calc(var(--Gap-xs) * -1);
+            width: 1px;
+            background-color: var(--Neutral-Black-30);
+            }
+        }
+    
+        svg {
+            width: var(--Icon-m);
+            height: var(--Icon-m);
+        }
     }
 
     .badge {
+        padding: var(--Gap-xxs) var(--Gap-xs);
+
         @include tokens.typography("xs", "semibold");
     }
 }
 
 .S {
     padding: var(--Gap-xs) var(--Gap-s);
+    max-height: 36px;
+    gap: var(--Gap-xs);
+
+    @include tokens.typography("m", "medium");
+
+    .leading-icon, .trailing-icon, .icon {
+        &--aditional {
+        margin-left: var(--Gap-xxs);
+        padding-left: var(--Gap-s);
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: calc(var(--Gap-xs) * -1);
+            bottom: calc(var(--Gap-xs) * -1);
+            width: 1px;
+            background-color: var(--Neutral-Black-30);
+            }
+        }
+    
+        svg {
+            width: var(--Icon-m);
+            height: var(--Icon-m);
+        }
+    }
+
+    .badge {
+        padding: var(--Gap-xxs) var(--Gap-xs);
+
+        @include tokens.typography("xs", "semibold");
+    }
 }
 
 .XS {
     padding: var(--Gap-xs) var(--Gap-xs);
+    max-height: 34px;
+    gap: var(--Gap-xxs);
+
+    @include tokens.typography("s", "medium");
+
+    .leading-icon, .trailing-icon, .icon {
+        &--aditional {
+        margin-left: var(--Gap-xxs);
+        padding-left: var(--Gap-xs);
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: calc(var(--Gap-xs) * -1);
+            bottom: calc(var(--Gap-xs) * -1);
+            width: 1px;
+            background-color: var(--Neutral-Black-30);
+            }
+        }
+    
+        svg {
+            width: var(--Icon-s);
+            height: var(--Icon-s);
+        }
+    }
+
+    .badge {
+        max-height: 17px;
+        max-width: 16px;
+        padding: var(--Gap-xxs) var(--Gap-xs);
+
+        @include tokens.typography("xxs", "semibold");
+    }
 }  
 
 .badge {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: var(--Gap-xxs) var(--Gap-xs);
     border-radius: var(--Radius-xs);
     max-height: 20px;
     max-width: 20px;

@@ -5,10 +5,51 @@ import { CheckIcon, GearSixIcon, SlidersHorizontalIcon, TrashIcon } from "@phosp
 function App() {
     return (
         <div className="container">
-            <Button size="M" variant="Primary" state="Default" leading_icon={true} trailing_icon={false} badge={true} badge_list="3" icon={<CheckIcon />}>Valider</Button>
-            <Button size="M" variant="Secondary" state="Default" leading_icon={true} trailing_icon={false} badge={true} badge_list="3" icon={<SlidersHorizontalIcon />}>Filtrer</Button>
-            <Button size="M" variant="Destructive" state="Default" leading_icon={false} trailing_icon={false} badge={true} badge_list="3" icon={<GearSixIcon />}>Supprimer</Button>
-            <Button variant="Secondary" state="Default" icon={<TrashIcon />}></Button>
+            <div className="row">
+                <Button size="M" variant="Primary" leading_icon={true} trailing_icon={false} badge={false} 
+                    badge_list="3" icon={<CheckIcon />} disabled={false}>
+                    Valider
+                </Button>
+                <Button size="M" variant="Secondary" leading_icon={true} trailing_icon={false} badge={true} 
+                badge_list="3" icon={<SlidersHorizontalIcon />} disabled={false}>
+                    Filtrer
+                </Button>
+                <Button size="M" variant="Destructive" leading_icon={false} trailing_icon={false} badge={false} 
+                badge_list="3" icon={<GearSixIcon />} disabled={false}>
+                    Supprimer
+                </Button>
+                <Button variant="Secondary" icon={<TrashIcon />}></Button>
+            </div>
+            <div className="row">
+                <Button size="S" variant="Primary" leading_icon={true} trailing_icon={false} badge={false} 
+                badge_list="3" icon={<CheckIcon />} disabled={false}>
+                    Valider
+                </Button>
+                <Button size="S" variant="Secondary" leading_icon={true} trailing_icon={false} badge={true} 
+                badge_list="3" icon={<SlidersHorizontalIcon />} disabled={false}>
+                    Filtrer
+                </Button>
+                <Button size="S" variant="Destructive" leading_icon={false} trailing_icon={false} badge={false} 
+                badge_list="3" icon={<GearSixIcon />} disabled={false}>
+                    Supprimer
+                </Button>
+                <Button variant="Secondary" icon={<TrashIcon />}></Button>
+            </div>
+            <div className="row">
+                <Button size="XS" variant="Primary" leading_icon={true} trailing_icon={false} badge={false} 
+                badge_list="3" icon={<CheckIcon />} disabled={false}>
+                    Valider
+                </Button>
+                <Button size="XS" variant="Secondary" leading_icon={true} trailing_icon={false} badge={true} 
+                badge_list="3" icon={<SlidersHorizontalIcon />} disabled={false}>
+                    Filtrer
+                </Button>
+                <Button size="XS" variant="Destructive" leading_icon={false} trailing_icon={false} badge={false} 
+                badge_list="3" icon={<GearSixIcon />} disabled={false}>
+                    Supprimer
+                </Button>
+                <Button variant="Secondary" icon={<TrashIcon />}></Button>
+            </div>
         </div>
     )
 }
