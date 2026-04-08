@@ -3,19 +3,33 @@ import { ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './Button.module.scss';
 import clsx from 'clsx';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children?: ReactNode;
+interface NormalButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: "M" | "S" | "XS";
-    variant: "Primary" | "Secondary" | "Ghost" | "Destructive" | "Alpha dark" | "Alpha light";
+    variant: "Primary" | "Secondary" | "Ghost" | "Destructive";
     leading_icon?: boolean;
     trailing_icon?: boolean;
+    children: ReactNode;
     badge?: boolean;
     badge_list?: string;
+    icon?: ReactNode;
+    disabled?: boolean; 
+}
+
+interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    size?: never;
+    variant: "Primary" | "Secondary" | "Alpha dark" | "Alpha light";
+    leading_icon?: never;
+    trailing_icon?: never;
+    children?: never;
+    badge?: never;
+    badge_list?: never;
     icon: ReactNode;
     disabled?: boolean; 
 }
 
-export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, icon, disabled, ...props}: ButtonProps) {
+type ButtonProps = NormalButtonProps | IconButtonProps;
+
+export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, icon, disabled }: ButtonProps) {
     const isIconOnly = !children || children === "";
 
     return (
