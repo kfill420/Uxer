@@ -39,9 +39,9 @@ pnpm dev
 
 ### NPM
 
-``
+```
 git clone https://github.com/kfill420/Uxer.git
 cd Uxer
 npm i
 pnpm run dev
-``
+```
