@@ -9,53 +9,7 @@
     justify-content: center;
     border-radius: var(--Radius-m);
     box-shadow: var(--Shadow-bottom-xs);
-}
-
-// Icon button style
-.isIcon {
-    padding: var(--Icon-xxs);
-}
-
-// Icon style
-.leading-icon, .trailing-icon, .icon {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &--aditional {
-       margin-left: var(--Gap-xxs);
-       padding-left: var(--Gap-s);
-
-       &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: calc(var(--Gap-xs) * -1);
-            bottom: calc(var(--Gap-xs) * -1);
-            width: 1px;
-            background-color: var(--Neutral-Black-30);
-        }
-    }
-
-    svg {
-        width: var(--Icon-m);
-        height: var(--Icon-m);
-    }
-}
-
-//Badge style
-.badge {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--Radius-xs);
-    max-height: 20px;
-    max-width: 20px;
-}
-
-// Variant button style
-.Primary, .Secondary, .Ghost, .Destructive {
+    
     &:focus {
         box-shadow: var(--Focus-ring-primary);
     }
@@ -63,9 +17,53 @@
     &:disabled {
         opacity: 40%;
     }
+
+    .leading-icon, .trailing-icon, .icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--aditional {
+           margin-left: var(--Gap-xxs);
+           padding-left: var(--Gap-s);
+
+           &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: calc(var(--Gap-xs) * -1);
+                bottom: calc(var(--Gap-xs) * -1);
+                width: 1px;
+                background-color: var(--Neutral-Black-30);
+            }
+        }
+
+        svg {
+            width: var(--Icon-m);
+            height: var(--Icon-m);
+        }
+    }
+
+    .badge {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: var(--Radius-xs);
+        max-height: 20px;
+        max-width: 20px;
+        padding: var(--Gap--xxs) var(--Ga-xs);
+        @include tokens.typography("xs", "semibold");
+    }
 }
 
-.Primary {
+// Icon button style
+.isIconOnly {
+    padding: var(--Icon-xxs);
+}
+
+// Variant button style
+.primary {
     background-color: var(--color-button-primary-default);
     color: var(--color-text-invert);
     border: solid 1px var(--Neutral-Black-30);
@@ -74,44 +72,51 @@
         background-color: var(--color-button-primary-hover);
     }
 
+    svg {
+        color: var(--Neutral-White-100);
+    }
+
     .badge {
         background-color: var(--Neutral-White-20);
     }
 }
 
-.Secondary {
+.secondary {
     background-color: var(--color-button-secondary-default);
     color: var(--color-text-body);
     border: solid 1px var(--color-stroke-primary);
-
-    svg {
-        color: var(--Neutral-Grey-500);
-    }
 
     &:hover {
         background-color: var(--color-button-secondary-hover);
     }
 
+    svg {
+        color: var(--Neutral-Grey-500);
+    }
+
     .badge {
         background-color: var(--Neutral-Black-10);
     }
 }
 
-.Ghost {
+.ghost {
     background-color: var(--color-button-ghost-default);
-    color: var(--color-ghost-secondary);
-    border: solid 1px var(--color-stroke-primary);
+    color: var(--color-text-body);
 
     &:hover {
         background-color: var(--color-button-ghost-hover);
     }
 
+    svg {
+        color: var(--Neutral-Grey-500);
+    }
+
     .badge {
         background-color: var(--Neutral-Black-10);
     }
 }
 
-.Destructive {
+.destructive {
     background-color: var(--color-button-destructive-default);
     color: var(--color-destructive-secondary);
     border: solid 1px var(--Neutral-Black-30);
@@ -120,41 +125,57 @@
         background-color: var(--color-button-destructive-hover);
     }
 
+    svg {
+        color: var(--Neutral-White-100);
+    }
+
     .badge {
         background-color: var(--Neutral-Black-20);
     }
 }
 
+.alpha-dark {
+    background-color: var(--Neutral-Black-20);
+    color: var(--color-destructive-secondary);
+
+    &:hover {
+        background-color: var(--Neutral-Black-30);
+    }
+
+    svg {
+        color: var(--Neutral-White-100);
+    }
+}
+
+.alpha-light {
+    background-color: var(--Neutral-White-20);
+    color: var(--color-destructive-secondary);
+
+    &:hover {
+        background-color: var(--Neutral-White-30);
+    }
+
+    svg {
+        color: var(--Neutral-White-100);
+    }
+}
+
 // Size button style
-.M {
+.m {
     padding: var(--Gap-xs) var(--Gap-s);
     max-height: 40px;
     gap: var(--Gap-xs);
-
     @include tokens.typography("m", "medium");
-
-    .badge {
-        padding: var(--Gap-xxs) var(--Gap-xs);
-
-        @include tokens.typography("xs", "semibold");
-    }
 }
 
-.S {
+.s {
     padding: var(--Gap-xs) var(--Gap-s);
     max-height: 36px;
     gap: var(--Gap-xs);
-
     @include tokens.typography("m", "medium");
-
-    .badge {
-        padding: var(--Gap-xxs) var(--Gap-xs);
-
-        @include tokens.typography("xs", "semibold");
-    }
 }
 
-.XS {
+.xs {
     padding: var(--Gap-xs) var(--Gap-xs);
     max-height: 34px;
     gap: var(--Gap-xxs);
@@ -172,7 +193,6 @@
         max-height: 17px;
         max-width: 16px;
         padding: var(--Gap-xxs) var(--Gap-xs);
-
         @include tokens.typography("xxs", "semibold");
     }
 }

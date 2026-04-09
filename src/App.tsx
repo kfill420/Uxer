@@ -6,49 +6,57 @@ function App() {
     return (
         <div className="container">
             <div className="row">
-                <Button size="M" variant="Primary" leading_icon={true} trailing_icon={false} badge={false} 
+                <Button size="m" variant="primary" leading_icon={true} trailing_icon={false} badge={false} 
                     badge_list="3" icon={<CheckIcon />} disabled={false}>
                     Valider
                 </Button>
-                <Button size="M" variant="Secondary" leading_icon={true} trailing_icon={false} badge={true} 
+                <Button size="m" variant="secondary" leading_icon={true} trailing_icon={false} badge={true} 
                 badge_list="3" icon={<SlidersHorizontalIcon />} disabled={false}>
                     Filtrer
                 </Button>
-                <Button size="M" variant="Destructive" leading_icon={false} trailing_icon={false} badge={false} 
+                <Button size="m" variant="destructive" leading_icon={false} trailing_icon={false} badge={false} 
                 badge_list="3" icon={<GearSixIcon />} disabled={false}>
                     Supprimer
                 </Button>
-                <Button variant="Secondary" icon={<TrashIcon />}></Button>
+                <Button variant="secondary" icon={<TrashIcon />} aria_label="button" />
             </div>
             <div className="row">
-                <Button size="S" variant="Primary" leading_icon={true} trailing_icon={false} badge={false} 
+                <Button size="s" variant="primary" leading_icon={true} trailing_icon={false} badge={false} 
                 badge_list="3" icon={<CheckIcon />} disabled={false}>
                     Valider
                 </Button>
-                <Button size="S" variant="Secondary" leading_icon={true} trailing_icon={false} badge={true} 
+                <Button size="s" variant="secondary" leading_icon={true} trailing_icon={false} badge={true} 
                 badge_list="3" icon={<SlidersHorizontalIcon />} disabled={false}>
                     Filtrer
                 </Button>
-                <Button size="S" variant="Destructive" leading_icon={false} trailing_icon={false} badge={false} 
+                <Button size="s" variant="destructive" leading_icon={false} trailing_icon={false} badge={false} 
                 badge_list="3" icon={<GearSixIcon />} disabled={false}>
                     Supprimer
                 </Button>
-                <Button variant="Secondary" icon={<TrashIcon />}></Button>
+                <Button variant="secondary" icon={<TrashIcon />} aria_label="button" />
             </div>
             <div className="row">
-                <Button size="XS" variant="Primary" leading_icon={true} trailing_icon={false} badge={false} 
+                <Button size="xs" variant="primary" leading_icon={true} trailing_icon={false} badge={false} 
                 badge_list="3" icon={<CheckIcon />} disabled={false}>
                     Valider
                 </Button>
-                <Button size="XS" variant="Secondary" leading_icon={true} trailing_icon={false} badge={true} 
+                <Button size="xs" variant="secondary" leading_icon={true} trailing_icon={false} badge={true} 
                 badge_list="3" icon={<SlidersHorizontalIcon />} disabled={false}>
                     Filtrer
                 </Button>
-                <Button size="XS" variant="Destructive" leading_icon={false} trailing_icon={false} badge={false} 
+                <Button size="xs" variant="destructive" leading_icon={false} trailing_icon={false} badge={false} 
                 badge_list="3" icon={<GearSixIcon />} disabled={false}>
                     Supprimer
                 </Button>
-                <Button variant="Secondary" icon={<TrashIcon />}></Button>
+                <Button variant="secondary" icon={<TrashIcon />} aria_label="button" />
+            </div>
+            <div className="row">
+                <Button size="m" variant="ghost" leading_icon={true} trailing_icon={false} badge={false} 
+                badge_list="3" icon={<CheckIcon />} disabled={false}>
+                    Ghost
+                </Button>
+                <Button variant="alpha-dark" icon={<CheckIcon />} disabled={false} aria_label="button" />
+                <Button variant="alpha-light" icon={<CheckIcon />} disabled={false} aria_label="button" />
             </div>
         </div>
     )

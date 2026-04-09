@@ -4,8 +4,8 @@ import styles from './Button.module.scss';
 import clsx from 'clsx';
 
 interface NormalButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    size?: "M" | "S" | "XS";
-    variant: "Primary" | "Secondary" | "Ghost" | "Destructive";
+    size?: "m" | "s" | "xs";
+    variant: "primary" | "secondary" | "ghost" | "destructive";
     leading_icon?: boolean;
     trailing_icon?: boolean;
     children: ReactNode;
@@ -13,38 +13,41 @@ interface NormalButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     badge_list?: string;
     icon?: ReactNode;
     disabled?: boolean; 
+    aria_label?: never;
 }
 
 interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: never;
-    variant: "Primary" | "Secondary" | "Alpha dark" | "Alpha light";
+    variant: "primary" | "secondary" | "alpha-dark" | "alpha-light";
     leading_icon?: never;
     trailing_icon?: never;
     children?: never;
     badge?: never;
     badge_list?: never;
     icon: ReactNode;
-    disabled?: boolean; 
+    disabled?: boolean;
+    aria_label?: string;
 }
 
+// Union discriminante pour choisir entre le NormalButton et l'IconButton
 type ButtonProps = NormalButtonProps | IconButtonProps;
 
-export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, icon, disabled }: ButtonProps) {
+export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, icon, disabled, aria_label }: ButtonProps) {
     const isIconOnly = !children || children === "";
 
     return (
-        <button disabled={disabled} className={clsx(
+        <button disabled={disabled} aria-label={aria_label} className={clsx(
             styles.button, 
             size && styles[size],
             variant && styles[variant],
-            isIconOnly && styles['isIcon']
+            isIconOnly && styles['isIconOnly']
         )}>
             { leading_icon && icon && 
                 <span className={styles['leading-icon']}>{icon}</span>
             }
 
             { children &&
-                <span className={clsx(styles.text)}>{ children }</span>
+                <span>{ children }</span>
             }
 
             { trailing_icon && icon && 
