@@ -9,6 +9,7 @@
     justify-content: center;
     border-radius: var(--Radius-m);
     box-shadow: var(--Shadow-bottom-xs);
+    overflow: hidden;
     
     &:focus {
         box-shadow: var(--Focus-ring-primary);
@@ -32,8 +33,8 @@
                 content: "";
                 position: absolute;
                 left: 0;
-                top: calc(var(--Gap-xs) * -1);
-                bottom: calc(var(--Gap-xs) * -1);
+                top: calc(calc(var(--Gap-xs) + (var(--max-height))) * -1);
+                bottom: calc(calc(var(--Gap-xs) + (var(--max-height))) * -1);
                 width: 1px;
                 background-color: var(--Neutral-Black-30);
             }
@@ -52,7 +53,7 @@
         border-radius: var(--Radius-xs);
         max-height: 20px;
         max-width: 20px;
-        padding: var(--Gap--xxs) var(--Ga-xs);
+        padding: var(--Gap-xxs) var(--Gap-xs);
         @include tokens.typography("xs", "semibold");
     }
 }
@@ -81,41 +82,6 @@
     }
 }
 
-.secondary {
-    background-color: var(--color-button-secondary-default);
-    color: var(--color-text-body);
-    border: solid 1px var(--color-stroke-primary);
-
-    &:hover {
-        background-color: var(--color-button-secondary-hover);
-    }
-
-    svg {
-        color: var(--Neutral-Grey-500);
-    }
-
-    .badge {
-        background-color: var(--Neutral-Black-10);
-    }
-}
-
-.ghost {
-    background-color: var(--color-button-ghost-default);
-    color: var(--color-text-body);
-
-    &:hover {
-        background-color: var(--color-button-ghost-hover);
-    }
-
-    svg {
-        color: var(--Neutral-Grey-500);
-    }
-
-    .badge {
-        background-color: var(--Neutral-Black-10);
-    }
-}
-
 .destructive {
     background-color: var(--color-button-destructive-default);
     color: var(--color-destructive-secondary);
@@ -134,9 +100,37 @@
     }
 }
 
+.secondary, .ghost {
+    color: var(--color-text-body);
+
+    svg {
+        color: var(--Neutral-Grey-500);
+    }
+
+    .badge {
+        background-color: var(--Neutral-Black-10);
+    }
+}
+
+.secondary {
+    background-color: var(--color-button-secondary-default);
+    border: solid 1px var(--color-stroke-primary);
+
+    &:hover {
+        background-color: var(--color-button-secondary-hover);
+    }
+}
+
+.ghost {
+    background-color: var(--color-button-ghost-default);
+
+    &:hover {
+        background-color: var(--color-button-ghost-hover);
+    }
+}
+
 .alpha-dark {
     background-color: var(--Neutral-Black-20);
-    color: var(--color-destructive-secondary);
 
     &:hover {
         background-color: var(--Neutral-Black-30);
@@ -149,7 +143,6 @@
 
 .alpha-light {
     background-color: var(--Neutral-White-20);
-    color: var(--color-destructive-secondary);
 
     &:hover {
         background-color: var(--Neutral-White-30);
@@ -162,24 +155,26 @@
 
 // Size button style
 .m {
+    --max-height: 40px;
     padding: var(--Gap-xs) var(--Gap-s);
-    max-height: 40px;
+    max-height: var(--max-height);
     gap: var(--Gap-xs);
     @include tokens.typography("m", "medium");
 }
 
 .s {
+    --max-height: 36px;
     padding: var(--Gap-xs) var(--Gap-s);
-    max-height: 36px;
+    max-height: height;
     gap: var(--Gap-xs);
     @include tokens.typography("m", "medium");
 }
 
 .xs {
+    --max-height: 34px;
     padding: var(--Gap-xs) var(--Gap-xs);
-    max-height: 34px;
+    max-height: var(--max-height);
     gap: var(--Gap-xxs);
-
     @include tokens.typography("s", "medium");
 
     .leading-icon, .trailing-icon, .icon {
