@@ -30,12 +30,12 @@
 
 ### PNPM
 
-``
+```
 git clone https://github.com/kfill420/Uxer.git
 cd Uxer
 pnpm i
 pnpm dev
-``
+```
 
 ### NPM
 
@@ -43,5 +43,5 @@ pnpm dev
 git clone https://github.com/kfill420/Uxer.git
 cd Uxer
 npm i
-pnpm run dev
+npm run dev
 ```
