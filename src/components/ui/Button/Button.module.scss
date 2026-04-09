@@ -165,7 +165,7 @@
 .s {
     --max-height: 36px;
     padding: var(--Gap-xs) var(--Gap-s);
-    max-height: height;
+    max-height: var(--max-height);
     gap: var(--Gap-xs);
     @include tokens.typography("m", "medium");
 }
