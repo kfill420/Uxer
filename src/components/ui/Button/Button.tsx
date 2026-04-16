@@ -6,12 +6,13 @@ import clsx from 'clsx';
 interface NormalButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: "m" | "s" | "xs";
     variant: "primary" | "secondary" | "ghost" | "destructive";
-    leading_icon?: boolean;
-    trailing_icon?: boolean;
+    leading_icon?: ReactNode;
+    trailing_icon?: ReactNode;
     children: ReactNode;
     badge?: boolean;
     badge_list?: string;
-    icon?: ReactNode;
+    separate_icon?: never;
+    icon?: never;
     disabled?: boolean; 
     aria_label?: never;
 }
@@ -24,15 +25,30 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: never;
     badge?: never;
     badge_list?: never;
+    separate_icon?: never;
     icon: ReactNode;
     disabled?: boolean;
     aria_label?: string;
 }
 
-// Union discriminante pour choisir entre le NormalButton et l'IconButton
-type ButtonProps = NormalButtonProps | IconButtonProps;
+interface ComplexButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    size?: "m" | "s" | "xs";
+    variant: "primary" | "secondary" | "destructive";
+    leading_icon?: ReactNode;
+    trailing_icon?: ReactNode;
+    children: ReactNode;
+    badge?: boolean;
+    badge_list?: string;
+    icon?: never;
+    separate_icon?: ReactNode;
+    disabled?: boolean; 
+    aria_label?: never;
+}
 
-export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, icon, disabled, aria_label }: ButtonProps) {
+// Union discriminante pour choisir entre le NormalButton et l'IconButton
+type ButtonProps = NormalButtonProps | IconButtonProps | ComplexButtonProps;
+
+export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, separate_icon, icon, disabled, aria_label }: ButtonProps) {
     const isIconOnly = !children || children === "";
 
     return (
@@ -42,24 +58,28 @@ export function Button({ children, size, variant, leading_icon, trailing_icon, b
             variant && styles[variant],
             isIconOnly && styles['isIconOnly']
         )}>
-            { leading_icon && icon && 
-                <span className={styles['leading-icon']}>{icon}</span>
+            { leading_icon && 
+                <span className={styles['leading-icon']}>{leading_icon}</span>
             }
 
             { children &&
                 <span>{ children }</span>
             }
 
-            { trailing_icon && icon && 
-                <span className={styles['trailing-icon']}>{icon}</span>
+            { trailing_icon &&
+                <span className={styles['trailing-icon']}>{trailing_icon}</span>
             }
 
             { badge && badge_list !==undefined && badge_list !== null && parseInt(badge_list, 10) && 
                 <span className={styles['badge']}>{badge_list}</span>
             }
 
-            { !leading_icon && !trailing_icon && icon && 
-                <span className={clsx(styles['icon'], !isIconOnly && styles['icon--aditional'])}>{icon}</span>
+            { separate_icon && 
+                <span className={clsx(styles['icon'], !isIconOnly && styles['icon--aditional'])}>{separate_icon}</span>
+            }
+
+            { icon && 
+                <span className={clsx(styles['icon'])}>{icon}</span> 
             }
         </button>
     )

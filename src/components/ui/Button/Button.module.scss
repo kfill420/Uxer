@@ -36,7 +36,7 @@
                 top: calc(calc(var(--Gap-xs) + (var(--max-height))) * -1);
                 bottom: calc(calc(var(--Gap-xs) + (var(--max-height))) * -1);
                 width: 1px;
-                background-color: var(--Neutral-Black-30);
+                background-color: var(--separator-color);
             }
         }
 
@@ -65,6 +65,7 @@
 
 // Variant button style
 .primary {
+    --separator-color: var(--Neutral-Black-30);
     background-color: var(--color-button-primary-default);
     color: var(--color-text-invert);
     border: solid 1px var(--Neutral-Black-30);
@@ -83,6 +84,7 @@
 }
 
 .destructive {
+    --separator-color: var(--Neutral-Black-30);
     background-color: var(--color-button-destructive-default);
     color: var(--color-destructive-secondary);
     border: solid 1px var(--Neutral-Black-30);
@@ -113,6 +115,7 @@
 }
 
 .secondary {
+    --separator-color: var(--color-stroke-primary);
     background-color: var(--color-button-secondary-default);
     border: solid 1px var(--color-stroke-primary);
 
