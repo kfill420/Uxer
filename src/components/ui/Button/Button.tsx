@@ -13,7 +13,6 @@ interface NormalButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     badge_list?: string;
     separate_icon?: never;
     icon?: never;
-    disabled?: boolean; 
     aria_label?: never;
     data_mode?: string;
 }
@@ -28,7 +27,6 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     badge_list?: never;
     separate_icon?: never;
     icon: ReactNode;
-    disabled?: boolean;
     aria_label?: string;
     data_mode?: string;
 }
@@ -43,7 +41,6 @@ interface ComplexButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     badge_list?: string;
     icon?: never;
     separate_icon?: ReactNode;
-    disabled?: boolean; 
     aria_label?: never;
     data_mode?: string;
 }
@@ -51,11 +48,11 @@ interface ComplexButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // Union discriminante pour choisir entre le NormalButton et l'IconButton
 type ButtonProps = NormalButtonProps | IconButtonProps | ComplexButtonProps;
 
-export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, separate_icon, icon, disabled, aria_label, ...props }: ButtonProps) {
+export function Button({ children, size, variant, leading_icon, trailing_icon, badge, badge_list, separate_icon, icon, aria_label, ...props }: ButtonProps) {
     const isIconOnly = !children || children === "";
 
     return (
-        <button disabled={disabled} aria-label={aria_label} className={clsx(
+        <button aria-label={aria_label} className={clsx(
             styles.button, 
             size && styles[size],
             variant && styles[variant],
