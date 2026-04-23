@@ -1,10 +1,13 @@
 import { Button } from "./components/ui/Button";
 import './App.scss';
 import { CheckIcon, GearSixIcon, SlidersHorizontalIcon, TrashIcon } from "@phosphor-icons/react";
+import { useState } from "react";
 
 function App() {
+    const [mode2, setMode2] = useState(false);
+
     return (
-        <div className="container">
+        <div className="container" data-mode={mode2 ? "mode-2" : undefined}>
             <div className="row">
                 <Button size="m" variant="primary" leading_icon={<CheckIcon />} badge={false} badge_list="3" disabled={false}>
                     Valider
@@ -47,6 +50,11 @@ function App() {
                 </Button>
                 <Button variant="alpha-dark" icon={<CheckIcon />} disabled={false} aria_label="button" />
                 <Button variant="alpha-light" icon={<CheckIcon />} disabled={false} aria_label="button" />
+            </div>
+            <div className="row">
+                <Button size="xs" variant="primary" leading_icon={<CheckIcon />} badge={false} badge_list="3" disabled={false} onClick={() => setMode2(!mode2)}>
+                    Change mode
+                </Button>
             </div>
         </div>
     )

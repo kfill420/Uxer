@@ -1,6 +1,6 @@
 @use "sass:map";
 
-:root {
+html {
   /* Color */
   // Neutral
   --Neutral-Grey-50: #FAFAFAFF;
@@ -252,6 +252,62 @@
   --Shadow-top-xl: 0px -3px 3px -1.5px rgba(0, 0, 0, 0.04), 0px -8px 8px -4px rgba(0, 0, 0, 0.03), 0px -20px 24px -4px rgba(0, 0, 0, 0.08);
   --Shadow-top-2xl: 0px -4px 4px -2px rgba(0, 0, 0, 0.04), 0px -24px 48px -12px rgba(0, 0, 0, 0.18);
   --Focus-ring-primary: 0px 0px 0px 3px rgba(0, 0, 0, 0.12);
+}
+
+[data-mode="mode-2"] {
+  // Primitives - Sizes
+  --Typography-Family-title: Geist Mono;
+  --Typography-Family-body: Geist Mono;
+  --Typography-Size-4XL: 40px;
+  --Typography-Size-3XL: 32px;
+  --Typography-Line-height-xxl: 0px;
+  --Typography-Line-height-xl: 0px;
+  --Typography-Line-height-l: 0px;
+  --Typography-Line-height-m: 0px;
+  --Typography-Line-height-s: 0px;
+  --Typography-Line-height-xs: 0px;
+  --Typography-Line-height-xxs: 0px;
+  --Typography-Line-height-xxxs: 0px;
+  --Gap-none: 0px;
+  --Gap-xxxs: 2px;
+  --Gap-xxs: 4px;
+  --Gap-xs: 8px;
+  --Gap-s: 12px;
+  --Icon-xxs: 10px;
+  --Gap-m: 16px;
+  --Gap-l: 24px;
+  --Gap-xl: 32px;
+  --Gap-2xl: 40px;
+  --Gap-3xl: 56px;
+  --Gap-4xl: 64px;
+  --Gap-5xl: 80px;
+  --Gap-6xl: 96px;
+  --Gap-7xl: 128px;
+  --Gap-8xl: 152px;
+  --Icon-xs: 12px;
+  --Icon-s: 16px;
+  --Icon-m: 20px;
+  --Icon-l: 24px;
+  --Icon-xl: 32px;
+  --Typography-Size-XXL: 24px;
+  --Typography-Size-XL: 20px;
+  --Typography-Size-L: 16px;
+  --Typography-Size-M: 14px;
+  --Typography-Size-S: 13px;
+  --Typography-Size-XS: 12px;
+  --Typography-Size-XXS: 10px;
+  --Radius-none: 0px;
+  --Radius-xxs: 2px;
+  --Radius-xs: 9999px;
+  --Radius-s: 9999px;
+  --Radius-m: 9999px;
+  --Radius-l: 9999px;
+  --Radius-xl: 9999px;
+  --Radius-rounded: 9999px;
+
+  // Brand Tokens
+  --brand-primary: var(--Brand-Clubhouse-600);
+  --brand-primary-hover: var(--Brand-Clubhouse-700);
 }
 
 $font-sizes: (

@@ -1,5 +1,5 @@
 /* Design tokens */
-:root {
+.container, html {
   --color-bg-default: var(--Neutral-White-100);
   --color-bg-surface: var(--Neutral-Grey-50);
   --color-stroke-primary: var(--Neutral-Grey-300);
@@ -27,4 +27,18 @@
   --modal-size-L: 800px;
   --modal-size-XL: 960px;
   --shadow-button-primary: var(--Shadow-bottom-xs);
+}
+
+[data-mode="mode-2"] {
+  // Primitives - Sizes
+  --Radius-xs: 9999px;
+  --Radius-s: 9999px;
+  --Radius-m: 9999px;
+  --Radius-l: 9999px;
+  --Radius-xl: 9999px;
+  --Radius-rounded: 9999px;
+
+  // Brand Tokens
+  --brand-primary: var(--Brand-Clubhouse-600);
+  --brand-primary-hover: var(--Brand-Clubhouse-700);
 }
